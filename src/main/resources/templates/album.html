@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album</title>
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+</head>
+<body>
+
+<header th:replace="fragments/commons::nav"></header>
+
+
+
+
+
+
+    <main role="main">
+        <section class="jumbotron text-center bg-transparent">
+            <div class="container">
+                <h1 class="jumbotron-heading text-white">Liverpool FC Academy</h1>
+                <p class="lead text-white">Explore our journey in fostering young talent. From early training sessions to breakthrough performances, witness how we shape future football stars at Liverpool FC Academy.</p>
+                <p>
+                    <a href="/enroll.html" class="btn btn-primary my-2">Join Us</a>
+                    <a href="/membership.html" class="btn btn-secondary my-2">Learn More</a>
+                </p>
+            </div>
+        </section>
+    
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <!-- First Card -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="/images/album1.jpeg" alt="Training Session">
+                            <div class="card-body">
+                                <p class="card-text">Our intensive training sessions focus on developing technical skills and tactical awareness. Every drill is a step towards excellence.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div>
+                                    <small class="text-muted">5 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Second Card -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="images/album2.jpeg" alt="Match Day">
+                            <div class="card-body">
+                                <p class="card-text">Match days are where our young talents shine. From friendly fixtures to competitive tournaments, every game is a chance to grow and learn.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div>
+                                    <small class="text-muted">1 hour ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Third Card -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="images/album3.jpeg" alt="Coaching">
+                            <div class="card-body">
+                                <p class="card-text">Our experienced coaches guide players through every step of their development, offering personalized feedback and support.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div>
+                                    <small class="text-muted">2 hours ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fourth Card -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="images/album4.jpeg" alt="Team Spirit">
+                            <div class="card-body">
+                                <p class="card-text">Team spirit is the cornerstone of our academy. We foster a sense of camaraderie and unity among our players, both on and off the pitch.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div>
+                                    <small class="text-muted">3 hours ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fifth Card -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="images/album5.jpg" alt="Facilities">
+                            <div class="card-body">
+                                <p class="card-text">Our state-of-the-art facilities provide the perfect environment for young athletes to hone their skills and prepare for the highest levels of competition.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div>
+                                    <small class="text-muted">4 hours ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sixth Card -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="images/album6.jpeg" alt="Player Progress">
+                            <div class="card-body">
+                                <p class="card-text">Tracking progress is key. We regularly assess and adjust our training programs to ensure each player reaches their full potential.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button onclick="location.href='/facilities.html'" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div>
+                                    <small class="text-muted">5 hours ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+    <footer th:replace="fragments/commons::footer"></footer>
+    
+</body>
+</html>

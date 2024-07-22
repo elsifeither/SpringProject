@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facilities</title>
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+
+<header th:replace="fragments/commons::nav"></header>
+
+    <main role="main">
+        <section class="jumbotron text-center bg-transparent">
+            <div class="container">
+                <h1 class="jumbotron-heading text-white">Our World-Class Facilities</h1>
+                <p class="lead text-white">Discover the exceptional facilities we offer at Liverpool FC Academy. Designed to support young athletes, our top-notch amenities provide the perfect environment for kids to develop their skills, stay healthy, and enjoy the game.</p>
+                <p>
+                    <a href="/enroll" class="btn btn-primary my-2">Join Us</a>
+                    <a href="/membership" class="btn btn-secondary my-2">Learn More</a>
+                </p>
+            </div>
+        </section>
+    
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <!-- First Card -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="/images/facility1.jpg" alt="Training Grounds">
+                            <div class="card-body">
+                                <p class="card-text">Our training grounds are meticulously maintained to provide a safe and high-quality surface for all types of drills and exercises. Kids thrive in this professional environment, developing their skills efficiently.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button onclick="location.href='/facilities'" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div>
+                                    <small class="text-muted">5 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Second Card -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="images/facility2.jpg" alt="Indoor Training">
+                            <div class="card-body">
+                                <p class="card-text">Our indoor training facilities ensure that practice can continue regardless of the weather. This space is perfect for honing techniques and staying fit year-round.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button onclick="location.href='/facilities'"type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div>
+                                    <small class="text-muted">1 hour ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Third Card -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="images/facility3.jpg" alt="Nutrition Center">
+                            <div class="card-body">
+                                <p class="card-text">Our state-of-the-art nutrition center provides healthy and delicious meals tailored to support young athletes' growth and energy needs. Proper nutrition is a cornerstone of our program.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button onclick="location.href='/facilities'" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div>
+                                    <small class="text-muted">2 hours ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fourth Card -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="images/facility4.jpg" alt="Rehabilitation Center">
+                            <div class="card-body">
+                                <p class="card-text">Our rehabilitation center is equipped with the latest technology to help young athletes recover quickly and safely from injuries. Keeping our kids healthy is our top priority.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button onclick="location.href='/facilities'" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div>
+                                    <small class="text-muted">3 hours ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fifth Card -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="images/facility5.jpg" alt="Academic Facilities">
+                            <div class="card-body">
+                                <p class="card-text">We believe in developing well-rounded individuals. Our academic facilities ensure that young athletes can pursue their education alongside their football training.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button onclick="location.href='/facilities'" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div>
+                                    <small class="text-muted">4 hours ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sixth Card -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top" src="images/facility6.jpeg" alt="Recreational Areas">
+                            <div class="card-body">
+                                <p class="card-text">Our recreational areas provide a space for kids to relax and socialize, fostering friendships and a sense of community. Balancing training with downtime is key to their overall development.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button onclick="location.href='/facilities'" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    </div>
+                                    <small class="text-muted">5 hours ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </main>
+
+<footer th:replace="fragments/commons::footer"></footer>
+    
+</body>
+</html>
