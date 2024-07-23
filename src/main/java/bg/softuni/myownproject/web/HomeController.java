@@ -11,7 +11,7 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/users/login")
     public String viewLogin() {
         return "login";
     }
@@ -21,7 +21,7 @@ public class HomeController {
         return "about";
     }
 
-    @GetMapping("/register")
+    @GetMapping("/users/registration")
     public String viewRegister() {
         return "register";
     }
