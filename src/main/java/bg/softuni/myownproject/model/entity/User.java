@@ -13,21 +13,18 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
 
+    @Column(nullable = false, unique = true)
+    private String email;
+
     @Column(nullable = false)
     private String password;
 
-    @Column(name = "full_name", nullable = false)
-    private String fullName;
+    @Column(name = "confirm_password", nullable = false)
+    private String confirmPassword;
 
-    @Column(nullable = false)
-    private Integer age;
+    public User() {
 
-    @Column(unique = true)
-    private String email;
-
-
-
-
+    }
 
     public long getId() {
         return id;
@@ -45,22 +42,6 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -69,11 +50,21 @@ public class User {
         this.email = email;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getPassword() {
+        return password;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setPassword(String password) {
+        this.password = password;
     }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+
 }
