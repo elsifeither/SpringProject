@@ -13,18 +13,21 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(nullable = false, unique = true)
-    private String email;
-
     @Column(nullable = false)
     private String password;
 
-    @Column(name = "confirm_password", nullable = false)
-    private String confirmPassword;
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
 
-    public User() {
+    @Column(nullable = false)
+    private Integer age;
 
-    }
+    @Column(unique = true)
+    private String email;
+
+
+
+
 
     public long getId() {
         return id;
@@ -42,14 +45,6 @@ public class User {
         this.username = username;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -58,12 +53,28 @@ public class User {
         this.password = password;
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
 
