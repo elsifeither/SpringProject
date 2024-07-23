@@ -2,6 +2,7 @@ package bg.softuni.myownproject.model.entity;
 
 import jakarta.persistence.*;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,15 +12,58 @@ public class TrainingSession {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime date;
+    @Column(nullable = false)
+    private Instant date;
+
+    @Column(nullable = false)
     private String location;
 
-    @ManyToOne
-    @JoinColumn(name = "team_id")
+    @ManyToOne(optional = false)
     private Team team;
 
-    @ManyToOne
-    @JoinColumn(name = "coach_id")
+    @ManyToOne(optional = false)
     private Coach coach;
 
+    public TrainingSession() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Instant getDate() {
+        return date;
+    }
+
+    public void setDate(Instant date) {
+        this.date = date;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    public Coach getCoach() {
+        return coach;
+    }
+
+    public void setCoach(Coach coach) {
+        this.coach = coach;
+    }
 }
