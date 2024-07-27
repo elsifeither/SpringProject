@@ -12,22 +12,42 @@
     <section class="register-form container col-ld-4 mx-auto my-auto">
         <div class="content-wrapper d-flex align-items-center justify-content-center h-100">
             <div class="login-form bg-blur p-4 rounded">
+                <div th:if="${showErrorMessage}" class="alert alert-danger text-center">
+                    <span>Invalid username or password</span>
+                </div>
                 <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Login</span></h1>
-                <form class="mx-auto w-100" method="" action="">
+                <form class="mx-auto w-100"
+                      th:method="POST"
+                      th:action="@{/users/login}"
+                >
 
                     <div class="form-group">
                         <div class="label-holder text-white d-flex justify-content-center">
                             <label for="username" class="h3 mb-2">Username</label>
                         </div>
-                        <input type="text" class="form-control" id="username" name="username" />
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="username"
+                                name="username"
+                                required minlength="5" maxlength="20"
+                        />
                     </div>
 
                     <div class="form-group">
                         <div class="label-holder text-white d-flex justify-content-center">
                             <label for="password" class="h3 mb-2">Password</label>
                         </div>
-                        <input type="password" class="form-control" id="password" name="password" />
+                        <input
+                                type="password"
+                                class="form-control"
+                                id="password"
+                                name="password"
+                                required minlength="5" maxlength="20"
+                        />
                     </div>
+
+
 
                     <div class="button-holder d-flex justify-content-center">
                         <button type="submit" class="btn btn-success mb-3">Login</button>

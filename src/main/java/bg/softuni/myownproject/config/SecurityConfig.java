@@ -1,16 +1,17 @@
 package bg.softuni.myownproject.config;
 
 
-
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
@@ -23,7 +24,7 @@ public class SecurityConfig {
                                         // all static resources to "common locations" (css, images, js) are available to anyone
                                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                                         // some more resources for all users
-                                        .requestMatchers("/", "/users/login", "/users/registration").permitAll()
+                                        .requestMatchers("/", "/users/login", "/users/login-error", "/users/register").permitAll()
                                         // all other URL-s should be authenticated.
                                         .anyRequest()
                                         .authenticated()
@@ -39,7 +40,7 @@ public class SecurityConfig {
                                 // What will happen if the login is successful
                                 .defaultSuccessUrl("/", true)
                                 // What will happen if the login fails
-                                .failureForwardUrl("/users/login-error")
+                                .failureUrl("/users/login-error")
                 )
                 .logout(
                         logout ->
@@ -47,7 +48,7 @@ public class SecurityConfig {
                                         // what is the logout URL?
                                         .logoutUrl("/users/logout")
                                         // Where to go after successful logout?
-                                        .logoutSuccessUrl("/")
+                                        .logoutSuccessUrl("/users/login")
                                         // invalidate the session after logout.
                                         .invalidateHttpSession(true)
                 )
@@ -56,8 +57,8 @@ public class SecurityConfig {
 
 
 //    @Bean
-//    public ProjectUserDetails userDetailsService(UserRepository userRepository) {
-//        return new ProjectUserDetailsService(userRepository);
+//    public AppUserDetailsService userDetailsService(UserRepository userRepository) {
+//        return new AppUserDetailsService(userRepository);
 //    }
 
 

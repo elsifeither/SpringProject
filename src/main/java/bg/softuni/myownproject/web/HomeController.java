@@ -1,19 +1,15 @@
 package bg.softuni.myownproject.web;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String viewHome() {
         return "home";
-    }
-
-    @GetMapping("/users/login")
-    public String viewLogin() {
-        return "login";
     }
 
     @GetMapping("/about")
@@ -21,17 +17,9 @@ public class HomeController {
         return "about";
     }
 
-    @GetMapping("/users/registration")
-    public String viewRegister() {
-        return "register";
-    }
-
-    @GetMapping("/enroll")
-    public String viewEnroll() {
-        return "enroll";
-    }
 
     @GetMapping("/facilities")
+    @PreAuthorize("hasRole('ADMIN')")
     public String viewFacilities() {
         return "facilities";
     }

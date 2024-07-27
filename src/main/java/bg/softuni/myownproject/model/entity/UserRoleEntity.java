@@ -18,6 +18,18 @@ public class UserRoleEntity {
     @Enumerated(EnumType.STRING)
     private UserRoleEnum role;
 
+    public UserRoleEntity() {
+
+    }
+
+    public UserRoleEntity(Long id,
+                          UserRoleEnum role) {
+        this.id = id;
+        this.role = role;
+
+    }
+
+
     public Long getId() {
         return id;
     }

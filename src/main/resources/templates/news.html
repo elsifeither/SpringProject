@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,42 +11,45 @@
 
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-          <a class="navbar-brand" href="#">Liverpool FC</a>
+          <a class="navbar-brand" th:href="@{/}">Liverpool FC</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item ">
-                <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/enroll">Enroll</a>
+                <a class="nav-link" th:href="@{/enroll}">Enroll</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/about">About Us</a>
+                <a class="nav-link" th:href="@{/about}">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/album">Album</a>
+                <a class="nav-link" th:href="@{/album}">Album</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/membership">Membership</a>
+                <a class="nav-link" th:href="@{/membership}">Membership</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/facilities">Facilities</a>
+                <a class="nav-link" th:href="@{/facilities}">Facilities</a>
               </li>
             </ul>
           </div>
           <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
             <ul class="navbar-nav row">
-                <li class="nav-item col-md-3">
-                    <a class="nav-link text-white active h5 text-stroke" href="/login">Login</a>
+                <li class="nav-item col-md-3" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link text-white active h5 text-stroke" th:href="@{/users/login}">Login</a>
                 </li>
-                <li class="nav-item col-md-4">
-                    <a class="nav-link text-white active h5 text-stroke" href="/register">Register</a>
+                <li class="nav-item col-md-4" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link text-white active h5 text-stroke" th:href="@{/users/register}">Register</a>
                 </li>
-                <li class="nav-item col-md-4">
-                    <a class="nav-link text-white active h5 text-stroke" href="/home">Logout</a>
+                <li class="nav-item col-md-4" sec:authorize="isAuthenticated()">
+                    <form th:method="post"
+                          th:action="@{/users/logout}">
+                        <input class="btn btn-link" type="submit" value="Logout"/>
+                    </form>
                 </li>
             </ul>
         </div>

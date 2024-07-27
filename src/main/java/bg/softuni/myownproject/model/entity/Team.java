@@ -16,7 +16,7 @@ public class Team {
     @Column(nullable = false)
     private String name;
 
-    @ManyToOne()
+    @ManyToOne
     private Coach coach;
 
     @OneToMany(mappedBy = "team")

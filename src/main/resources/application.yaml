@@ -1,17 +1,12 @@
 spring:
   application:
     name: MyOwnProject
-  #  thymeleaf:
-  #    check-template-location: true
-  #    cache: false
-  #    prefix: file:./src/main/resources/templates/
-  #server:
-  #  port: 8081
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/MyOwnProject?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
     username: root
     password: 1234
+
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     defer-datasource-initialization: true
@@ -27,3 +22,4 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
+
