@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Training Session</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header th:replace="fragments/commons::nav"></header>
+
+<section class="training-session-form container col-lg-6 col-md-8 mx-auto my-5">
+    <div class="content-wrapper d-flex align-items-center justify-content-center h-100">
+        <div class="card bg-dark border-0 px-5 rounded">
+            <h1 class="text-center mt-2 mb-4"><span class="badge bg-dark text-white fs-4">Add Training Session</span></h1>
+            <form class="mx-auto w-100"
+                  th:method="POST"
+                  th:action="@{/training-sessions/add}"
+                  th:object="${trainingSession}">
+
+                <div class="form-group mb-3">
+                    <div class="label-holder text-center">
+                        <label for="date" class="form-label h5 mb-2 text-white">Date</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="datetime-local"
+                               class="form-control"
+                               id="date"
+                               name="date"
+                               th:field="*{date}"
+                               th:errorclass="'is-invalid alert-danger'"
+                               required>
+                        <small class="invalid-feedback text-danger">Date error message</small>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="label-holder text-center">
+                        <label for="location" class="form-label h5 mb-2 text-white">Location</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="text"
+                               class="form-control"
+                               id="location"
+                               name="location"
+                               placeholder="Enter session location"
+                               th:field="*{location}"
+                               th:errorclass="'is-invalid alert-danger'"
+                               required minlength="2" maxlength="50">
+                        <small class="invalid-feedback text-danger">Location error message</small>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="label-holder text-center">
+                        <label for="team" class="form-label h5 mb-3 text-white">Team</label>
+                    </div>
+                    <div class="input-group justify-content-center">
+                        <select class="form-select bg-opacity-50 py-2 px-5"
+                                id="team"
+                                name="team"
+                                th:field="*{team}"
+                                th:errorclass="'is-invalid alert-danger'"
+                                required>
+                            <option value="" disabled selected>Select team</option>
+                            <option th:each="team : ${teams}"
+                                    th:value="${team.id}"
+                                    th:text="${team.name}"></option>
+                        </select>
+                        <small class="invalid-feedback text-danger">Team error message</small>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="label-holder text-center">
+                        <label for="coach" class="form-label h5 mb-3 text-white">Coach</label>
+                    </div>
+                    <div class="input-group justify-content-center">
+                        <select class="form-select bg-opacity-50 py-2 px-5"
+                                id="coach"
+                                name="coach"
+                                th:field="*{coach}"
+                                th:errorclass="'is-invalid alert-danger'"
+                                required>
+                            <option value="" disabled selected>Select coach</option>
+                            <option th:each="coach : ${coaches}"
+                                    th:value="${coach.id}"
+                                    th:text="${coach.firstName + ' ' + coach.lastName}"></option>
+                        </select>
+                        <small class="invalid-feedback text-danger">Coach error message</small>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="button-holder d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-lg mt-3 mb-3"><i class="bi bi-check-circle"></i> Add Training</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="fragments/commons::footer"></footer>
+
+</body>
+</html>

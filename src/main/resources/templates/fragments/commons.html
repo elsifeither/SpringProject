@@ -23,6 +23,9 @@
         <a class="nav-link text-white active h5 text-stroke" th:href="@{/roles}" sec:authorize="hasRole('ADMIN') " >Roles</a>
         <a class="nav-link text-white active h5 text-stroke" th:href="@{/add-team}" sec:authorize="hasRole('MODERATOR') or hasRole('ADMIN')" >Add Team</a>
         <a class="nav-link text-white active h5 text-stroke" th:href="@{/coaches}" sec:authorize="hasRole('MODERATOR') or hasRole('ADMIN')">Add Coach</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/training-sessions}" sec:authorize="hasRole('USER')">Schedule</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/training-sessions/add}" sec:authorize="hasRole('MODERATOR') or hasRole('ADMIN')">Add Training</a>
+
 
 
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">

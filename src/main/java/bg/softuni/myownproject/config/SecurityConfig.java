@@ -26,7 +26,9 @@ public class SecurityConfig {
                                         // some more resources for all users
                                         .requestMatchers("/", "/users/login", "/users/login-error", "/users/register", "/about", "/membership").permitAll()
                                         .requestMatchers("/teams").hasAnyRole("MODERATOR", "ADMIN")
+                                        .requestMatchers("/add-team").hasAnyRole("MODERATOR", "ADMIN")
                                         .requestMatchers("/coaches").hasAnyRole("MODERATOR", "ADMIN")
+                                        .requestMatchers("/training-sessions/add").hasAnyRole("MODERATOR", "ADMIN")
                                         .requestMatchers("/roles").hasRole("ADMIN")
 
                                         // all other URL-s should be authenticated.

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Training Sessions</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header th:replace="fragments/commons :: nav"></header>
+
+<section class="container my-5">
+    <div class="row">
+        <div class="col-12 text-center mb-2">
+            <h1 class="text-white">Training Sessions</h1>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <table class="table table-dark table-striped">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Team</th>
+                    <th>Coach</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="training : ${trainingSessions}">
+                    <td th:text="${#dates.format(training.date, 'yyyy-MM-dd / HH:mm')}">2023-01-01/10:00</td>
+                    <td th:text="${training.location}">Location</td>
+                    <td th:text="${training.team.name}">Team</td>
+                    <td th:text="${training.coach.firstName + ' ' + training.coach.lastName}">Coach</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="fragments/commons :: footer"></footer>
+
+</body>
+</html>

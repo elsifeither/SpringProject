@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CoachService {
@@ -26,5 +27,14 @@ public class CoachService {
 
     public List<Coach> findAllCoaches() {
         return coachRepository.findAll();
+    }
+
+
+    public List<Coach> findAll() {
+        return coachRepository.findAll();
+    }
+
+    public Optional<Coach> findById(Long id) {
+        return coachRepository.findById(id);
     }
 }
