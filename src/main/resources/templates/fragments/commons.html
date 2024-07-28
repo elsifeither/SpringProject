@@ -32,7 +32,7 @@
                 <li class="nav-item col-md-4" sec:authorize="isAuthenticated()">
                     <form th:method="post"
                           th:action="@{/users/logout}">
-                        <input class="btn btn-link" type="submit" value="Logout"/>
+                        <input class="btn btn-primary" type="submit" value="Logout"/>
                     </form>
                 </li>
             </ul>

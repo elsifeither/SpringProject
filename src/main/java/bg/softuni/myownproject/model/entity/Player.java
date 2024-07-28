@@ -1,8 +1,8 @@
 package bg.softuni.myownproject.model.entity;
 
 
+import bg.softuni.myownproject.model.enums.GenderEnum;
 import jakarta.persistence.*;
-
 import java.time.Instant;
 import java.time.LocalDate;
 
@@ -21,9 +21,12 @@ public class Player {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "date_of_birth", nullable = false)
-    private Instant dateOfBirth;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private GenderEnum gender;
 
+    @Column(name = "birth_date", nullable = false)
+    private LocalDate birthDate;
     @Column
     private String position;
 
@@ -50,12 +53,20 @@ public class Player {
         this.position = position;
     }
 
-    public Instant getDateOfBirth() {
-        return dateOfBirth;
+    public GenderEnum getGender() {
+        return gender;
     }
 
-    public void setDateOfBirth(Instant dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setGender(GenderEnum gender) {
+        this.gender = gender;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     public String getLastName() {

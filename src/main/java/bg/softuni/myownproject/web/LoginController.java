@@ -19,8 +19,6 @@ public class LoginController {
     @GetMapping("/login-error")
     public String loginError(Model model) {
         model.addAttribute("showErrorMessage", true);
-
-
         return "auth-login";
     }
 

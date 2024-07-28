@@ -13,85 +13,103 @@
 
 <header th:replace="fragments/commons::nav"></header>
 
-
-<!-- Enrollment form -->
-
 <section class="enrollment-form container col-lg-6 col-md-8 mx-auto my-5">
     <div class="content-wrapper d-flex align-items-center justify-content-center h-100">
-        <div class="card bg-dark  border-0 px-5 rounded">
-            <h1 class="text-center mt-2 mb-4"><span class="badge bg-dark text-white fs-4">Enrollment Form</span>
-            </h1>
+        <div class="card bg-dark border-0 px-5 rounded">
+            <h1 class="text-center mt-2 mb-4"><span class="badge bg-dark text-white fs-4">Enrollment Form</span></h1>
             <form class="mx-auto w-100"
-                  method=""
-                  action="">
+                  th:method="POST"
+                  th:action="@{/enroll}"
+                  th:object="${playerDTO}">
+
                 <!-- First Name Field -->
                 <div class="form-group mb-3">
                     <div class="label-holder text-center">
-                        <label for="first_name" class="form-label h5 mb-2 text-white">First Name</label>
+                        <label for="firstName" class="form-label h5 mb-2 text-white">First Name</label>
                     </div>
                     <div class="input-group">
-
-                        <input type="text" class="form-control" id="first_name" name="first_name"
-                               placeholder="Enter child's first name">
+                        <input type="text"
+                               class="form-control"
+                               id="firstName"
+                               name="firstName"
+                               placeholder="Enter child's first name"
+                               th:field="*{firstName}"
+                               th:errorclass="'is-invalid alert-danger'"
+                               required minlength="2" maxlength="20"
+                        >
+                        <small class="invalid-feedback text-danger">Name error message</small>
                     </div>
                 </div>
+
                 <!-- Last Name Field -->
                 <div class="form-group mb-3">
                     <div class="label-holder text-center">
-                        <label for="last_name" class="form-label h5 mb-2 text-white">Last Name</label>
+                        <label for="lastName" class="form-label h5 mb-2 text-white">Last Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="last_name" name="last_name"
-                               placeholder="Enter child's last name">
+                        <input type="text"
+                               class="form-control"
+                               id="lastName"
+                               name="lastName"
+                               placeholder="Enter child's last name"
+                               th:field="*{lastName}"
+                               th:errorclass="'is-invalid alert-danger'"
+                               required minlength="2" maxlength="20"
+                        >
+                        <small class="invalid-feedback text-danger">Name error message</small>
+
                     </div>
                 </div>
-                <!-- Age Group Field -->
+
+                <!-- Birth Date Field -->
                 <div class="form-group mb-3">
-                    <div class="label-holder text-center ">
-                        <label for="age_group" class="form-label h5 mb-3 text-white">Age Group</label>
+                    <div class="label-holder text-center">
+                        <label for="birthDate" class="form-label h5 mb-3 text-white">Birth Date</label>
                     </div>
                     <div class="input-group justify-content-center">
-                        <select class="form-select bg-opacity-50 py-2 px-5" id="age_group" name="age_group">
-                            <option selected disabled>Select age group</option>
-                            <option value="u10">Under 8</option>
-                            <option value="u10">Under 6</option>
-                            <option value="u10">Under 10</option>
-                            <option value="u12">Under 12</option>
-                            <option value="u14">Under 14</option>
-                            <option value="u16">Under 16</option>
-                        </select>
+                        <input type="date"
+                               class="form-control"
+                               id="birthDate"
+                               name="birthDate"
+                               placeholder="YYYY-MM-DD"
+                               th:field="*{birthDate}"
+                               th:errorclass="'is-invalid alert-danger'"
+                               required>
+                        <small class="invalid-feedback text-danger">Name error message</small>
                     </div>
                 </div>
+
                 <!-- Gender Field -->
                 <div class="form-group mb-3">
                     <div class="label-holder text-center">
                         <label for="gender" class="form-label h5 mb-3 text-white">Gender</label>
                     </div>
-                    <div class="input-group justify-content-center ">
-                        <select class="form-select bg-opacity-50 py-2 px-5" id="gender" name="gender">
-                            <option selected disabled>Select gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
+                    <div class="input-group justify-content-center">
+                        <select class="form-select bg-opacity-50 py-2 px-5"
+                                id="gender"
+                                name="gender"
+                                th:field="*{gender}"
+                                th:errorclass="'is-invalid alert-danger'"
+                                required>
+                            <option value="" disabled selected>Select gender</option>
+                            <option value="MALE">Male</option>
+                            <option value="FEMALE">Female</option>
+                            <option value="OTHER">Other</option>
                         </select>
+                        <small class="invalid-feedback text-danger">Name error message</small>
                     </div>
                 </div>
 
                 <!-- Submit Button -->
                 <div class="button-holder d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary btn-lg mt-3 mb-3"><i
-                            class="bi bi-check-circle"></i> Enroll
-                    </button>
+                    <button type="submit" class="btn btn-primary btn-lg mt-3 mb-3"><i class="bi bi-check-circle"></i> Enroll</button>
                 </div>
             </form>
         </div>
     </div>
 </section>
 
-
 <footer th:replace="fragments/commons::footer"></footer>
 
-
 </body>
-
 </html>

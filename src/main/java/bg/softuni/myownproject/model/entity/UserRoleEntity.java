@@ -3,7 +3,6 @@ package bg.softuni.myownproject.model.entity;
 
 import bg.softuni.myownproject.model.enums.UserRoleEnum;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "roles")
@@ -13,8 +12,7 @@ public class UserRoleEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     @Enumerated(EnumType.STRING)
     private UserRoleEnum role;
 
