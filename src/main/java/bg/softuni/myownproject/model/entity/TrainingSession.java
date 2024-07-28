@@ -3,7 +3,6 @@ package bg.softuni.myownproject.model.entity;
 import jakarta.persistence.*;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "training_sessions")

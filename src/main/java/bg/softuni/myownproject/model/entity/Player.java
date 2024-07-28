@@ -3,7 +3,6 @@ package bg.softuni.myownproject.model.entity;
 
 import bg.softuni.myownproject.model.enums.GenderEnum;
 import jakarta.persistence.*;
-import java.time.Instant;
 import java.time.LocalDate;
 
 @Entity
@@ -30,7 +29,7 @@ public class Player {
     @Column
     private String position;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Team team;
 
     public Player() {

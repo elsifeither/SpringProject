@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,13 +45,30 @@ public class UserService {
         return true;
     }
 
+
     private UserEntity map(UserRegistrationDTO userRegistrationDTO) {
         UserEntity mappedEntity = modelMapper.map(userRegistrationDTO, UserEntity.class);
         mappedEntity.setPassword(passwordEncoder.encode(userRegistrationDTO.getPassword()));
         mappedEntity.setConfirmPassword(passwordEncoder.encode(userRegistrationDTO.getConfirmPassword()));
-
-
-
         return mappedEntity;
+    }
+
+    public void changeUserRole(Long userId, UserRoleEnum newRole) {
+        UserEntity user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        UserRoleEntity role = userRoleRepository.findByRole(newRole)
+                .orElseThrow(() -> new RuntimeException("Role not found"));
+
+        List<UserRoleEntity> mutableRoles = new ArrayList<>(user.getRoles());
+        mutableRoles.clear();
+        mutableRoles.add(role);
+        user.setRoles(mutableRoles);
+
+        userRepository.save(user);
+    }
+
+    public List<UserEntity> findAll() {
+        return userRepository.findAll();
     }
 }

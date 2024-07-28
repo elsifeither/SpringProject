@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users List</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header th:replace="fragments/commons :: nav"></header>
+
+<section class="container my-5">
+    <div th:each="user : ${users}" class="container col-lg-6 col-md-10 mx-auto my-5">
+        <div class="card bg-dark text-white border-0 rounded">
+            <div class="card-header text-center">
+                <h2 class="card-title">User: <span th:text="${user.username}">john_doe</span></h2>
+                <h3 class="card-subtitle mt-2">Email: <span th:text="${user.email}">john@example.com</span></h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <h4>First Name:</h4>
+                        <span th:text="${user.firstName}">John</span>
+                    </div>
+                    <div class="col-4 text-center">
+                        <h4>Last Name:</h4>
+                        <span th:text="${user.lastName}">Doe</span>
+                    </div>
+                    <div class="col-4 text-center">
+                        <h4>Role:</h4>
+                        <span th:each="role : ${user.roles}" th:text="${role.role}">User</span>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12 text-center">
+                        <form th:action="@{/roles/{userId}/changeRole(userId=${user.id})}" method="post" class="d-inline">
+                            <input type="hidden" name="role" value="MODERATOR">
+                            <button type="submit" class="btn btn-primary">Make Moderator</button>
+                        </form>
+                        <form th:action="@{/roles/{userId}/changeRole(userId=${user.id})}" method="post" class="d-inline">
+                            <input type="hidden" name="role" value="USER">
+                            <button type="submit" class="btn btn-secondary">Make User</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="fragments/commons :: footer"></footer>
+
+</body>
+</html>

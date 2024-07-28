@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header th:replace="fragments/commons::nav"></header>
+
+<section class="container col-lg-6 col-md-8 mx-auto my-5">
+    <div class="card bg-dark text-white border-0 rounded">
+        <div class="card-header text-center">
+            <h1 class="card-title">Enrollment Successful!</h1>
+        </div>
+        <div class="card-body text-center">
+            <h2 class="mb-4">Your child has been successfully enrolled!</h2>
+            <p>Thank you for enrolling your child with us. We look forward to seeing them on the field!</p>
+            <a class="btn btn-secondary mt-3" th:href="@{/}">Back to Home</a>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="fragments/commons::footer"></footer>
+
+</body>
+</html>

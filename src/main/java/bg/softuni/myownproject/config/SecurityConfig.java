@@ -24,7 +24,11 @@ public class SecurityConfig {
                                         // all static resources to "common locations" (css, images, js) are available to anyone
                                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                                         // some more resources for all users
-                                        .requestMatchers("/", "/users/login", "/users/login-error", "/users/register").permitAll()
+                                        .requestMatchers("/", "/users/login", "/users/login-error", "/users/register", "/about", "/membership").permitAll()
+                                        .requestMatchers("/teams").hasAnyRole("MODERATOR", "ADMIN")
+                                        .requestMatchers("/coaches").hasAnyRole("MODERATOR", "ADMIN")
+                                        .requestMatchers("/roles").hasRole("ADMIN")
+
                                         // all other URL-s should be authenticated.
                                         .anyRequest()
                                         .authenticated()
@@ -56,10 +60,6 @@ public class SecurityConfig {
     }
 
 
-//    @Bean
-//    public AppUserDetailsService userDetailsService(UserRepository userRepository) {
-//        return new AppUserDetailsService(userRepository);
-//    }
 
 
     @Bean

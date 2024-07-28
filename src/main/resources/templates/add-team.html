@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Team</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header th:replace="fragments/commons::nav"></header>
+
+<section class="enrollment-form container col-lg-6 col-md-8 mx-auto my-5">
+    <div class="content-wrapper d-flex align-items-center justify-content-center h-100">
+        <div class="card bg-dark border-0 px-5 rounded">
+            <h1 class="text-center mt-2 mb-4"><span class="badge bg-dark text-white fs-4">Add Team</span></h1>
+            <form class="mx-auto w-100"
+                  th:method="POST"
+                  th:action="@{/add-team}"
+                  th:object="${teamDTO}">
+
+                <div class="form-group mb-3">
+                    <div class="label-holder text-center">
+                        <label for="name" class="form-label h5 mb-2 text-white">Team Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="text"
+                               class="form-control"
+                               id="name"
+                               name="name"
+                               placeholder="Enter team name"
+                               th:field="*{name}"
+                               th:errorclass="'is-invalid alert-danger'"
+                               required minlength="2" maxlength="20"
+                        >
+                        <small class="invalid-feedback text-danger">Team Name error message</small>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="label-holder text-center">
+                        <label for="coach" class="form-label h5 mb-2 text-white">Coach</label>
+                    </div>
+                    <div class="input-group">
+                        <select class="form-select"
+                                id="coach"
+                                name="coachId"
+                                th:field="*{coachId}"
+                                th:errorclass="'is-invalid alert-danger'"
+                                required>
+                            <option value="" th:text="'Select Coach'">Select Coach</option>
+                            <!-- Dynamically populate coaches -->
+                            <option th:each="coach : ${coaches}"
+                                    th:value="${coach.id}"
+                                    th:text="${coach.firstName} + ' ' + ${coach.lastName}"></option>
+                        </select>
+                        <small class="invalid-feedback text-danger">Coach error message</small>
+                    </div>
+                </div>
+
+                <div class="button-holder d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-lg mt-3 mb-3"><i class="bi bi-check-circle"></i> Add Team</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="fragments/commons::footer"></footer>
+
+</body>
+</html>

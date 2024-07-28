@@ -22,4 +22,8 @@ public class PlayerService {
         Player mappedPlayer = modelMapper.map(addPlayerDTO, Player.class);
         playerRepository.save(mappedPlayer);
     }
+
+    public void deletePlayer(Long playerId) {
+        playerRepository.deleteById(playerId);
+    }
 }

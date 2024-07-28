@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams List</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header th:replace="fragments/commons :: nav"></header>
+
+
+<section class="container my-5">
+    <div th:each="team : ${teams}" class="container col-lg-6 col-md-10 mx-auto my-5">
+        <div class="card bg-dark text-white border-0 rounded">
+            <div class="card-header text-center">
+                <h1 class="card-title">Team: <span th:text="${team.name}">Liverpool U8</span></h1>
+                <h2 class="card-subtitle mt-2">Coach: <span th:text="${team.coach.firstName} + ' ' + ${team.coach.lastName}">John Doe</span></h2>
+            </div>
+            <div class="card-body">
+                <h3 class="text-center mb-4">Players:</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item bg-dark text-white" th:each="player : ${team.players}">
+                        <div class="row">
+                            <div class="col-4 text-center">
+                                <span th:text="${player.firstName} + ' ' + ${player.lastName}">Michael Smith</span>
+                            </div>
+                            <div class="col-4 text-center">
+                                <span th:text="${(player.birthDate)}">2012-04-05</span>
+                            </div>
+                            <div class="col-4 text-center">
+                                <span th:text="${player.gender}">Male</span>
+                            </div>
+                            <div class="col-12 text-center mt-2">
+                                <form th:action="@{/teams/{teamId}/players/{playerId}(teamId=${team.id}, playerId=${player.id})}" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-danger">Remove</button>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<footer th:replace="fragments/commons :: footer"></footer>
+
+
+</body>
+</html>

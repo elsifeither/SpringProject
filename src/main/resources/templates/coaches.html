@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Coach</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header th:replace="fragments/commons::nav"></header>
+
+<section class="enrollment-form container col-lg-6 col-md-8 mx-auto my-5">
+    <div class="content-wrapper d-flex align-items-center justify-content-center h-100">
+        <div class="card bg-dark border-0 px-5 rounded">
+            <h1 class="text-center mt-2 mb-4"><span class="badge bg-dark text-white fs-4">Add Coach</span></h1>
+            <form class="mx-auto w-100"
+                  th:method="POST"
+                  th:action="@{/coaches}"
+                  th:object="${coachDTO}">
+
+                <div class="form-group mb-3">
+                    <div class="label-holder text-center">
+                        <label for="firstName" class="form-label h5 mb-2 text-white">First Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="text"
+                               class="form-control"
+                               id="firstName"
+                               name="firstName"
+                               placeholder="Enter coach's first name"
+                               th:field="*{firstName}"
+                               th:errorclass="'is-invalid alert-danger'"
+                               required minlength="2" maxlength="20">
+                        <small class="invalid-feedback text-danger">First Name error message</small>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="label-holder text-center">
+                        <label for="lastName" class="form-label h5 mb-2 text-white">Last Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="text"
+                               class="form-control"
+                               id="lastName"
+                               name="lastName"
+                               placeholder="Enter coach's last name"
+                               th:field="*{lastName}"
+                               th:errorclass="'is-invalid alert-danger'"
+                               required minlength="2" maxlength="20"
+                        >
+                        <small class="invalid-feedback text-danger">Last Name error message</small>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="label-holder text-center">
+                        <label for="email" class="form-label h5 mb-2 text-white">Email</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email"
+                               class="form-control"
+                               id="email"
+                               name="email"
+                               placeholder="Enter coach's email address"
+                               th:field="*{email}"
+                               th:errorclass="'is-invalid alert-danger'"
+                               required
+                        >
+                        <small class="invalid-feedback text-danger">Email error message</small>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="label-holder text-center">
+                        <label for="phone" class="form-label h5 mb-2 text-white">Phone Number</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel"
+                               class="form-control"
+                               id="phone"
+                               name="phone"
+                               placeholder="Enter coach's phone number"
+                               th:field="*{phoneNumber}"
+                               th:errorclass="'is-invalid alert-danger'"
+                               required
+                        >
+                        <small class="invalid-feedback text-danger">Phone number error message</small>
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="label-holder text-center">
+                        <label for="experience" class="form-label h5 mb-2 text-white">Experience</label>
+                    </div>
+                    <div class="input-group">
+                            <textarea class="form-control"
+                                      id="experience"
+                                      name="experience"
+                                      placeholder="Enter coach's experience"
+                                      th:field="*{experience}"
+                                      th:errorclass="'is-invalid alert-danger'"
+                                      rows="4"
+                                      required>
+
+                            </textarea>
+                        <small class="invalid-feedback text-danger">Experience error message</small>
+                    </div>
+                </div>
+
+                <div class="button-holder d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-lg mt-3 mb-3"><i class="bi bi-check-circle"></i> Add Coach</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="fragments/commons::footer"></footer>
+
+</body>
+</html>

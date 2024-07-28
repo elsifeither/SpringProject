@@ -16,10 +16,22 @@ public class AddPlayerDTO {
     @Size(min = 2, max = 20)
     private String lastName;
 
+    @NotNull
     private LocalDate birthDate;
 
+    @NotNull
     private GenderEnum gender;
 
+    @NotNull
+    private Long teamId;
+
+    public Long getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(Long teamId) {
+        this.teamId = teamId;
+    }
 
     public String getFirstName() {
         return firstName;

@@ -6,10 +6,8 @@ import bg.softuni.myownproject.model.enums.UserRoleEnum;
 import bg.softuni.myownproject.repository.UserRoleRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 @Component
 public class InitRoles implements CommandLineRunner {
