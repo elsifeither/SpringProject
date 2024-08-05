@@ -11,39 +11,65 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong" >
-        <a class="nav-link text-white active h5 text-stroke" th:href="@{/}">Liverpool FC</a>
-        <a class="nav-link text-white active h5 text-stroke" th:href="@{/about}" sec:authorize="hasRole('USER')">About</a>
-        <a class="nav-link text-white active h5 text-stroke" th:href="@{/enroll}" sec:authorize="hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')">Enroll</a>
-        <a class="nav-link text-white active h5 text-stroke" th:href="@{/news}" sec:authorize="hasRole('USER')" >News</a>
-        <a class="nav-link text-white active h5 text-stroke" th:href="@{/membership}" sec:authorize="hasRole('USER')">Membership</a>
-        <a class="nav-link text-white active h5 text-stroke" th:href="@{/album}" sec:authorize="hasRole('USER')">Album</a>
-        <a class="nav-link text-white active h5 text-stroke" th:href="@{/facilities}" sec:authorize="hasRole('USER')" >Facilities</a>
-        <a class="nav-link text-white active h5 text-stroke" th:href="@{/teams}" sec:authorize="hasRole('MODERATOR') or hasRole('ADMIN')" >Teams</a>
-        <a class="nav-link text-white active h5 text-stroke" th:href="@{/roles}" sec:authorize="hasRole('ADMIN') " >Roles</a>
-        <a class="nav-link text-white active h5 text-stroke" th:href="@{/add-team}" sec:authorize="hasRole('MODERATOR') or hasRole('ADMIN')" >Add Team</a>
-        <a class="nav-link text-white active h5 text-stroke" th:href="@{/coaches}" sec:authorize="hasRole('MODERATOR') or hasRole('ADMIN')">Add Coach</a>
-        <a class="nav-link text-white active h5 text-stroke" th:href="@{/training-sessions}" sec:authorize="hasRole('USER')">Schedule</a>
-        <a class="nav-link text-white active h5 text-stroke" th:href="@{/training-sessions/add}" sec:authorize="hasRole('MODERATOR') or hasRole('ADMIN')">Add Training</a>
-
-
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/}" th:text="#{nav_bar_Liverpool_FC}">Liverpool FC</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/about}" th:text="#{nav_bar_About}" sec:authorize="hasRole('USER')">About</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/enroll}" th:text="#{nav_bar_Enroll}" sec:authorize="hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')">Enroll</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/news}" th:text="#{nav_bar_News}" sec:authorize="hasRole('USER')">News</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/membership}" th:text="#{nav_bar_Membership}" sec:authorize="hasRole('USER')">Membership</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/album}" th:text="#{nav_bar_Album}" sec:authorize="hasRole('USER')">Album</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/facilities}" th:text="#{nav_bar_Facilities}" sec:authorize="hasRole('USER')">Facilities</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/teams}" th:text="#{nav_bar_Teams}" sec:authorize="hasRole('MODERATOR') or hasRole('ADMIN')">Teams</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/roles}" th:text="#{nav_bar_Roles}" sec:authorize="hasRole('ADMIN') ">Roles</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/add-team}" th:text="#{nav_bar_Add_Team}" sec:authorize="hasRole('MODERATOR') or hasRole('ADMIN')">Add Team</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/coaches}" th:text="#{nav_bar_Add_Coach}" sec:authorize="hasRole('MODERATOR') or hasRole('ADMIN')">Add Coach</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/training-sessions}" th:text="#{nav_bar_Schedule}" sec:authorize="hasRole('USER')">Schedule</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/training-sessions/add}" th:text="#{nav_bar_Add_Training}" sec:authorize="hasRole('MODERATOR') or hasRole('ADMIN')">Add Training</a>
 
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-            <ul class="navbar-nav row">
-                <li class="nav-item col-md-4" sec:authorize="!isAuthenticated()">
-                    <a class="nav-link text-white active h5 text-stroke" th:href="@{/users/login}">Login</a>
+            <ul class="navbar-nav d-flex align-items-center">
+                <li class="nav-item mx-2">
+                    <form th:method="get" class="d-flex align-items-center">
+                        <label class="text-white mb-0 mr-2"
+                               for="lang"
+                               th:text="#{nav_bar_language}">Language</label>
+                        <select
+                                id="lang"
+                                name="lang"
+                                onchange="this.form.submit()"
+                                class="form-select form-select-sm">
+                            <option value="en_US" th:selected="${#locale.toString()} == 'en_US'">English</option>
+                            <option value="bg_BG" th:selected="${#locale.toString()} == 'bg_BG'">Български</option>
+                        </select>
+                    </form>
                 </li>
-                <li class="nav-item col-md-4" sec:authorize="!isAuthenticated()">
-                    <a class="nav-link text-white active h5 text-stroke" th:href="@{/users/register}">Register</a>
+                <li class="nav-item mx-2" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link text-white active h5 text-stroke mb-0"
+                       th:href="@{/users/login}"
+                       th:text="#{nav_bar_login}">
+                        Login
+                    </a>
                 </li>
-                <li class="nav-item col-md-4" sec:authorize="isAuthenticated()">
-                    <form th:method="post"
-                          th:action="@{/users/logout}">
-                        <input class="btn btn-primary" type="submit" value="Logout"/>
+                <li class="nav-item mx-2" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link text-white active h5 text-stroke mb-0"
+                       th:href="@{/users/register}"
+                       th:text="#{nav_bar_register}"
+                    >Register</a>
+                </li>
+                <li class="nav-item mx-2 text-white"  sec:authorize="isAuthenticated()">
+                    <form th:method="post" th:action="@{/users/logout}">
+                        <button
+                                class="btn btn-primary"
+                                type="submit"
+                                th:text="#{nav_bar_logout}"
+                        >
+                        </button>
                     </form>
                 </li>
             </ul>
         </div>
+
+
     </nav>
 </header>
 
