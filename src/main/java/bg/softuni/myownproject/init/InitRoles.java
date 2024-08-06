@@ -19,11 +19,9 @@ public class InitRoles implements CommandLineRunner {
         this.userRoleRepository = userRoleRepository;
     }
 
-
     @Override
     public void run(String... args) throws Exception {
         long count = userRoleRepository.count();
-
         if (count > 0) {
             return;
         }

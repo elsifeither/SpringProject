@@ -3,7 +3,6 @@ package bg.softuni.myownproject.service;
 import bg.softuni.myownproject.model.entity.Facility;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import java.util.Arrays;
 import java.util.List;
 

@@ -5,7 +5,6 @@ import bg.softuni.myownproject.model.entity.Coach;
 import bg.softuni.myownproject.repository.CoachRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 

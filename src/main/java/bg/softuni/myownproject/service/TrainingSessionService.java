@@ -5,7 +5,6 @@ import bg.softuni.myownproject.model.entity.Coach;
 import bg.softuni.myownproject.model.entity.Team;
 import bg.softuni.myownproject.model.entity.TrainingSession;
 import bg.softuni.myownproject.repository.TrainingSessionRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
