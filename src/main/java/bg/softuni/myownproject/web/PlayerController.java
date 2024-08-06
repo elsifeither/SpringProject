@@ -2,16 +2,11 @@ package bg.softuni.myownproject.web;
 
 
 import bg.softuni.myownproject.model.dto.AddPlayerDTO;
-import bg.softuni.myownproject.model.dto.UserRegistrationDTO;
 import bg.softuni.myownproject.model.entity.Team;
-import bg.softuni.myownproject.model.entity.UserEntity;
-import bg.softuni.myownproject.model.enums.UserRoleEnum;
 import bg.softuni.myownproject.service.PlayerService;
 import bg.softuni.myownproject.service.TeamService;
-import bg.softuni.myownproject.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;

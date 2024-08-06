@@ -29,7 +29,6 @@ public class CoachController {
         return "coaches";
     }
 
-
     @PostMapping("/coaches")
     public String doEnroll(
             @Valid AddCoachDTO addCoachDTO,

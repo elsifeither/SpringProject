@@ -49,7 +49,6 @@
                                 th:errorclass="'is-invalid alert-danger'"
                                 required>
                             <option value="" th:text="'Select Coach'">Select Coach</option>
-                            <!-- Dynamically populate coaches -->
                             <option th:each="coach : ${coaches}"
                                     th:value="${coach.id}"
                                     th:text="${coach.firstName} + ' ' + ${coach.lastName}"></option>

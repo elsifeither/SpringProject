@@ -1,7 +1,6 @@
 package bg.softuni.myownproject.web;
 
 import bg.softuni.myownproject.model.dto.AddTeamDTO;
-import bg.softuni.myownproject.model.dto.UserRegistrationDTO;
 import bg.softuni.myownproject.model.entity.Team;
 import bg.softuni.myownproject.service.CoachService;
 import bg.softuni.myownproject.service.PlayerService;
@@ -30,15 +29,15 @@ public class TeamController {
 
     @GetMapping("/teams")
     public String getAllTeams(Model model) {
-        List<Team> teams = teamService.findAll(); // Fetch all teams along with their players
+        List<Team> teams = teamService.findAll();
         model.addAttribute("teams", teams);
-        return "teams-list"; // This should match the name of your Thymeleaf template
+        return "teams-list";
     }
 
     @PostMapping("/teams/{teamId}/players/{playerId}")
     public String deletePlayer(@PathVariable Long teamId, @PathVariable Long playerId) {
-        playerService.deletePlayer(playerId); // Delete the player
-        return "redirect:/teams"; // Redirect back to the teams list
+        playerService.deletePlayer(playerId);
+        return "redirect:/teams";
     }
 
 
@@ -50,13 +49,13 @@ public class TeamController {
     @GetMapping("/add-team")
     public String showAddTeamForm(Model model) {
         model.addAttribute("teamDTO", new AddTeamDTO());
-        model.addAttribute("coaches", coachService.findAllCoaches()); // List of coaches to populate the dropdown
+        model.addAttribute("coaches", coachService.findAllCoaches());
         return "add-team";
     }
 
     @PostMapping("/add-team")
     public String addTeam(AddTeamDTO teamDTO) {
         teamService.saveTeam(teamDTO);
-        return "redirect:/teams"; // Redirect to a page that lists teams
+        return "redirect:/teams";
     }
 }
