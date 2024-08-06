@@ -3,6 +3,7 @@ package bg.softuni.myownproject.service;
 import bg.softuni.myownproject.model.entity.UserEntity;
 import bg.softuni.myownproject.repository.UserRepository;
 
+import bg.softuni.myownproject.user.ProjectUserDetails;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -36,11 +37,13 @@ public class AppUserDetailsService implements UserDetailsService {
 
 
     private UserDetails map(UserEntity userEntity) {
-        return User.withUsername(userEntity.getUsername())
-                .password(userEntity.getPassword())
-                .authorities(mapToGrantedAuthorities(userEntity))
-                .disabled(false)
-                .build();
+        return new ProjectUserDetails(
+                userEntity.getUsername(),
+                userEntity.getPassword(),
+                mapToGrantedAuthorities(userEntity),
+                userEntity.getFirstName(),
+                userEntity.getLastName()
+        );
     }
 
     private List<GrantedAuthority> mapToGrantedAuthorities(UserEntity userEntity) {
