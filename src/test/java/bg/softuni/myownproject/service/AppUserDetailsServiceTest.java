@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class AppUserDetailsServiceTest {
 
-    private static final String TEST_USERNAME= "elsifeither";
+    private static final String TEST_USERNAME = "elsifeither";
     private static final String NOT_EXISTENT_USERNAME = "noone";
 
     private AppUserDetailsService toTest;
@@ -54,10 +54,8 @@ public class AppUserDetailsServiceTest {
         when(mockUserRepository.findByUsername(TEST_USERNAME))
                 .thenReturn(Optional.of(testUser));
 
-        // Act
         UserDetails userDetails = toTest.loadUserByUsername(TEST_USERNAME);
 
-        // Assert
         Assertions.assertInstanceOf(ProjectUserDetails.class, userDetails);
 
         ProjectUserDetails projectUserDetails = (ProjectUserDetails) userDetails;

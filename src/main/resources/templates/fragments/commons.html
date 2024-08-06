@@ -18,7 +18,7 @@
         <a class="nav-link text-white active h5 text-stroke" th:href="@{/news}" th:text="#{nav_bar_News}" sec:authorize="hasRole('USER')">News</a>
         <a class="nav-link text-white active h5 text-stroke" th:href="@{/membership}" th:text="#{nav_bar_Membership}" sec:authorize="hasRole('USER')">Membership</a>
         <a class="nav-link text-white active h5 text-stroke" th:href="@{/album}" th:text="#{nav_bar_Album}" sec:authorize="hasRole('USER')">Album</a>
-        <a class="nav-link text-white active h5 text-stroke" th:href="@{/facilities}" th:text="#{nav_bar_Facilities}" sec:authorize="hasRole('USER')">Facilities</a>
+        <a class="nav-link text-white active h5 text-stroke" th:href="@{/facilities-view}" th:text="#{nav_bar_Facilities}" sec:authorize="hasRole('USER')">Facilities</a>
         <a class="nav-link text-white active h5 text-stroke" th:href="@{/teams}" th:text="#{nav_bar_Teams}" sec:authorize="hasRole('MODERATOR') or hasRole('ADMIN')">Teams</a>
         <a class="nav-link text-white active h5 text-stroke" th:href="@{/roles}" th:text="#{nav_bar_Roles}" sec:authorize="hasRole('ADMIN') ">Roles</a>
         <a class="nav-link text-white active h5 text-stroke" th:href="@{/add-team}" th:text="#{nav_bar_Add_Team}" sec:authorize="hasRole('MODERATOR') or hasRole('ADMIN')">Add Team</a>

@@ -21,9 +21,9 @@ public class HomeController {
         return "enrollment-success";
     }
 
-    @GetMapping("/facilities")
+    @GetMapping("/facilities-view")
     public String viewFacilities() {
-        return "facilities";
+        return "facilities-view";
     }
 
     @GetMapping("/album")

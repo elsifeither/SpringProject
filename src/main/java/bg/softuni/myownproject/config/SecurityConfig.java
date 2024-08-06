@@ -24,7 +24,7 @@ public class SecurityConfig {
                                         // all static resources to "common locations" (css, images, js) are available to anyone
                                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                                         // some more resources for all users
-                                        .requestMatchers("/", "/users/login", "/users/login-error", "/users/register", "/about", "/membership").permitAll()
+                                        .requestMatchers("/", "/users/login", "/users/login-error", "/users/register", "/about", "/membership", "/facilities/**" ).permitAll()
                                         .requestMatchers("/teams").hasAnyRole("MODERATOR", "ADMIN")
                                         .requestMatchers("/add-team").hasAnyRole("MODERATOR", "ADMIN")
                                         .requestMatchers("/coaches").hasAnyRole("MODERATOR", "ADMIN")
